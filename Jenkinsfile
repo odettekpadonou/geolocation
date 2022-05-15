@@ -25,13 +25,15 @@ pipeline {
          
         }
 
-    
+    /*
          stage('deploy') {
             steps {
                 echo 'deploy'
+                */
                 
             }
-        }
         
-    }
+        
+    
+    
 
