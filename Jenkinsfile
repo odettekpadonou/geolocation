@@ -23,14 +23,15 @@ pipeline {
             }
         }
          
-        }
-         stage('deploy') {
+          stage('deploy') {
             steps {
                 echo 'deploy'
                 
            }
                 
         }
+
+    }
 }
 
          
