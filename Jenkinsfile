@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Checkout'){
             steps{
-                git branch: 'main', url: 'https://github.com/odettekpadonou/geolocation.git'
+                git branch: 'main', url: 'https://github.com/odettekpadonou/helloworld_jan_22.git'
             }
         }
         stage('Code Build') {
