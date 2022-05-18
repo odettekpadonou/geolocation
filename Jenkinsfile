@@ -1,12 +1,13 @@
 pipeline {
     triggers {
-  polISCM('* * * * *')
+  poIISCM('* * * * *')
 }
     agent any
     tools {
   maven "M2"
     }
 
+   
     stages {
         stage('maven package') {
             steps {
