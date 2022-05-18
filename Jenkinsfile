@@ -1,7 +1,7 @@
 pipeline {
     triggers {
-  poIISCM('* * * * *')
-}
+  "poIISCM"('* * * * *')
+    }
     agent any
     tools {
   maven "M2"
