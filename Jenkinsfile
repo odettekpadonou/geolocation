@@ -1,6 +1,6 @@
 pipeline {
     triggers {
-  polISCM '* * * * *'
+  polISCM ('* * * * *')
 }
     agent any
     tools {
