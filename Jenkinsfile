@@ -24,6 +24,7 @@ pipeline {
                 sh 'mvn test'
             }
         }
+        /*
         stage('Build Image') {
             steps {
                 script{
@@ -37,8 +38,10 @@ pipeline {
                     docker.withRegistry("https://"+registry,"ecr:us-east-1:"+registryCredential) {
                         dockerImage.push()
                     }
+                    
                 }
             }
         }  
+        */
     }
 }
