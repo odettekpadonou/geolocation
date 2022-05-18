@@ -1,47 +1,37 @@
 pipeline {
+    triggers {
+  pollSCM ('* * * * * ')
+}
+
     agent any
-    tools{
-        maven 'M2'
+    tools {
+  maven "M2"
     }
-    environment {
-    registry = '197782876056.dkr.ecr.us-east-1.amazonaws.com/devop_repository'
-    registryCredential = 'jenkins-ecr'
-    dockerimage = ''
-  }
+
+   
     stages {
-        stage('Checkout'){
-            steps{
-                git branch: 'main', url: 'https://github.com/odettekpadonou/helloworld_jan_22.git'
-            }
-        }
-        stage('Code Build') {
+        stage('maven package') {
             steps {
-                sh 'mvn clean package'
+               sh 'mvn clean'
+               sh 'mvn install'
+               sh 'mvn package'
             }
         }
-        stage('Test') {
+         stage('build') {
+            steps {
+                echo 'build'
+            }
+        }
+         stage('test') {
             steps {
                 sh 'mvn test'
             }
         }
-        /*
-        stage('Build Image') {
+         stage('deploy') {
             steps {
-                script{
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
-                } 
+                echo 'deploy'
             }
         }
-        stage('Deploy image') {
-            steps{
-                script{ 
-                    docker.withRegistry("https://"+registry,"ecr:us-east-1:"+registryCredential) {
-                        dockerImage.push()
-                    }
-                    
-                }
-            }
-        }  
-        */
     }
 }
+
